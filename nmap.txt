@@ -1,0 +1,22 @@
+Sample IP : 142.250.193.206
+
+Step1 : nmap -sn {Ip address} : Active Hosts
+Step2 : namp {IP} -sS : Syn Scan
+Step3 : nmap -sV {IP} : Versions of services
+Step4 : nmap -O {IP} : OS detection
+Step5 : nmap -A {IP} : Aggresive scan
+Step6 : sudo nmap -sU {IP} : Scan for open UDP ports
+Step7 : nmap -sn {IP} : ping sweep
+Step8 : nmap -sT {IP} : TCP Scan
+Step9 : nmap -sV {IP} : Service Enumeration
+Step10: nmap -D RND:5 {IP} : Decoy Scan
+Step11: nmap --traceroute {IP} : Map the networks path with target machine
+Step12: nmap -sX {IP} : Xmas scan
+Step13: nmap --script dns-brute google.com
+Step14: nmap -D RND:10 {IP} : IP address spoofing
+Step15: nmap -sA {IP} : TCP ACK scan
+Step16: nmap -o 1000-2000 {IP} : Scan a range of IP's
+Step17: nmap -oN output.txt -A {IP} : Detailed Nmap scan
+
+
+
